@@ -135,9 +135,10 @@ export url='https://testingcf.jsdelivr.net/gh/juewuy/ShellCrash@dev' \
 
  ### :whale: Docker 
 
- Please visit the official Docker image:
+ This branch publishes its container image to GHCR:
 
-- [ShellCrash on Docker Hub](https://hub.docker.com/r/juewuy/shellcrash)
+- [ShellCrash on GHCR](https://github.com/cyxc1124/ShellCrash/pkgs/container/shellcrash)
+- [Container build and usage guide](docker/README.md)
 
 
 ### :package: Local Installation

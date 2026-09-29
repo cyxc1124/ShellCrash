@@ -1,8 +1,14 @@
-# ShellCrash (Official Docker Image)
+# ShellCrash (GHCR Image)
 
-**ShellCrash 官方 Docker 镜像**，用于在容器环境中运行 ShellCrash，支持 **HTTP / SOCKS 代理** 与 **旁路由透明代理** 两种部署模式。
+**ShellCrash GHCR 镜像**，用于在容器环境中运行 ShellCrash，支持 **HTTP / SOCKS 代理** 与 **旁路由透明代理** 两种部署模式。
 
-该镜像由 **ShellCrash 官方维护**，基于原项目脚本构建，并通过 Docker 多架构机制发布。
+`ghcr` 是基于 `dev` 创建的独立镜像发布分支，不向上游发起合并请求。该分支仅保留 GHCR 镜像构建工作流。
+
+- 推送到 `ghcr` 分支会自动构建，也可在 GitHub Actions 中选择该分支手动运行 `Build and publish ShellCrash to GHCR`。
+- 使用 GitHub 自动提供的 `GITHUB_TOKEN` 登录 GHCR，无需配置 Docker Hub 凭据。
+- 镜像地址：`ghcr.io/cyxc1124/shellcrash`，发布 `latest`、`version` 文件中的版本号和 `sha-<完整提交 SHA>` 三种标签。
+- 支持 `linux/386`、`linux/amd64`、`linux/arm64` 和 `linux/arm/v7`。
+- 沿用当前分支的 `ShellCrash.tar.gz` 和 Dockerfile，内核、规则集和面板仍从上游下载。
 
 ------
 
@@ -15,7 +21,7 @@ docker run -d \
   --name shellcrash \
   -p 7890:7890 \
   -p 9999:9999 \
-  juewuy/shellcrash:latest
+  ghcr.io/cyxc1124/shellcrash:latest
 ```
 
 ------
@@ -60,7 +66,7 @@ docker run -d \
   --sysctl net.ipv4.ip_forward=1 \
   --device /dev/net/tun:/dev/net/tun \
   --restart unless-stopped \
-  juewuy/shellcrash:latest
+  ghcr.io/cyxc1124/shellcrash:latest
 ```
 
 ### 3. 配置需要路由的设备
@@ -106,7 +112,7 @@ cd /tmp/ShellCrash
 ### 2. 下载Compose模版
 
 ```shell
-curl -sSL https://testingcf.jsdelivr.net/gh/juewuy/ShellCrash@dev/docker/compose.yml -O
+curl -sSL https://raw.githubusercontent.com/cyxc1124/ShellCrash/ghcr/docker/compose.yml -O
 ```
 
 ### 3. 根据本地环境修改Compose模版

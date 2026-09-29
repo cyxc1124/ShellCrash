@@ -140,9 +140,10 @@ export url='https://testingcf.jsdelivr.net/gh/juewuy/ShellCrash@master' \
 
  ### :whale: Docker 
 
- 请访问官方 Docker 镜像：
+ 本分支的容器镜像发布至 GHCR：
 
-- [ShellCrash on Docker Hub](https://hub.docker.com/r/juewuy/shellcrash)
+- [ShellCrash on GHCR](https://github.com/cyxc1124/ShellCrash/pkgs/container/shellcrash)
+- [容器构建与使用说明](docker/README.md)
 
 
 ### :package: 本地安装
